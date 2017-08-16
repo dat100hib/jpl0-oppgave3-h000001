@@ -1,7 +1,24 @@
 language: java
 jdk:
   - oraclejdk8
-script: mvn test -f ./travis-ci-pom.xml
+script: mvn test -f ./travis-ci-pom.xml > RESULT-h000001.html
 cache:
   directories:
   - $HOME/.m2
+
+after_script:
+  - pwd
+  - ls -lat
+  - cat RESULT-h000001.html
+  - rm -rf .git*
+  - ls -lat
+  - git init
+  - git config --global user.name "wruiwr"
+  - git config --global user.email "wruiwr86@gmail.com"
+  - git checkout -b result
+  - git status -s
+  - git add RESULT-h000001.html
+  - git status -s
+  - git commit -m "update building result"
+  - git fetch --unshallow
+  - git push --force --quiet https://wruiwr:$GITHUB_TOKEN_PRIVATE@github.com/wruiwr/travis-results.git result

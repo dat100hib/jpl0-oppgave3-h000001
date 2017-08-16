@@ -5,6 +5,7 @@ jdk:
 before_script:
   - git config --global user.name "wruiwr"
   - git config --global user.email "wruiwr86@gmail.com"
+  - mkdir travis-building-results
 
 script: mvn test -f ./travis-ci-pom.xml > ./travis-building-results/BUILDING_RESULT.html
 cache:
@@ -14,6 +15,7 @@ cache:
 after_script:
   - ls -lat
   - git checkout master
+  - git status -s
   - git add -A
   - git status -s
   - git commit -m "update building result [ci skip]"

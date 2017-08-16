@@ -1,15 +1,19 @@
 language: java
 jdk:
   - oraclejdk8
-  
-script: mvn test -f ./travis-ci-pom.xml > BUILDING_RESULT.html
+
+before_script:
+  - git config --global user.name "wruiwr"
+  - git config --global user.email "wruiwr86@gmail.com"
+
+script: mvn test -f ./travis-ci-pom.xml > ./travis-building-results/BUILDING_RESULT.html
 cache:
   directories:
   - $HOME/.m2
   
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: master
+after_script:
+  - git checkout master
+  - git add -A
+  - git commit -m "update building result [ci skip]"
+  - git push --force --quiet https://wruiwr:$GITHUB_TOKEN@github.com/dat100hib/jpl0-oppgave3-h000001 master
+

@@ -12,6 +12,7 @@ cache:
   - $HOME/.m2
   
 after_script:
+  - ls -lat
   - git checkout master
   - git add -A
   - git status -s

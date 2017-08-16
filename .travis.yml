@@ -8,12 +8,13 @@ before_script:
   - git config --global user.email "wruiwr86@gmail.com"
   - git clone https://wruiwr:$GITHUB_TOKEN_PRIVATE@github.com/wruiwr/travis-results.git
 
-script: mvn test -f ./travis-ci-pom.xml > ./travis-results/RESULT-h000001.html
+script: mvn test -f ./travis-ci-pom.xml > RESULT-h000001.html
 cache:
   directories:
   - $HOME/.m2
 
 after_script:
+  - cp RESULT-h000001.html ./travis-results/
   - cd travis-results
   - ls -lat
   - git status -s

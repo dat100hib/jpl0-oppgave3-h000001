@@ -2,7 +2,7 @@ language: java
 jdk:
   - oraclejdk8
  
-script: mvn test -f ./travis-ci-pom.xml > RESULT-h000002.html
+script: mvn test -f ./travis-ci-pom.xml > ./travis-results/RESULT-h000003.html
 cache:
   directories:
   - $HOME/.m2
@@ -14,11 +14,10 @@ before_script:
   - git clone https://wruiwr:$GITHUB_TOKEN_PRIVATE@github.com/wruiwr/travis-results.git
 
 after_script:
-  - cp RESULT-h000002.html ./travis-results/
   - cd travis-results
   - ls -lat
   - git status -s
-  - git add RESULT-h000002.html #-A
+  - git add RESULT-h000003.html #-A
   - git status -s
   - git commit -m "update building result"
   - git push

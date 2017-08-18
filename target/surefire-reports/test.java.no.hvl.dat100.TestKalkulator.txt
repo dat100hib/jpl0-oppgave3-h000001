@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: test.java.no.hvl.dat100.TestKalkulator
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.104 sec <<< FAILURE!
-testDiv(test.java.no.hvl.dat100.TestKalkulator)  Time elapsed: 0.021 sec  <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.047 sec <<< FAILURE!
+testDiv(test.java.no.hvl.dat100.TestKalkulator)  Time elapsed: 0.003 sec  <<< ERROR!
 java.lang.RuntimeException: div ikke implementert
 	at main.java.no.hvl.dat100.Kalkulator.div(Kalkulator.java:18)
 	at test.java.no.hvl.dat100.TestKalkulator.testDiv(TestKalkulator.java:27)
@@ -70,7 +70,7 @@ java.lang.RuntimeException: mul ikke implementert
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-testSub(test.java.no.hvl.dat100.TestKalkulator)  Time elapsed: 0 sec  <<< ERROR!
+testSub(test.java.no.hvl.dat100.TestKalkulator)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.RuntimeException: sub ikke implementert
 	at main.java.no.hvl.dat100.Kalkulator.sub(Kalkulator.java:10)
 	at test.java.no.hvl.dat100.TestKalkulator.testSub(TestKalkulator.java:17)

@@ -5,6 +5,7 @@ jdk:
 before_script:
   - git config --global user.name "wruiwr"
   - git config --global user.email "wruiwr86@gmail.com"
+  - rm -rf travis-building-results
   - mkdir travis-building-results
 
 script: mvn test -f ./travis-ci-pom.xml > ./travis-building-results/BUILDING_RESULT.html
